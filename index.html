@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 3</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+	<style>
+		img {
+            max-width: 80%;
+            height: auto;
+        }
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 3</small>
+			Visualization Critique & Redesign
+		</h1>
+
+		<p>
+			<strong>Eagon Meng</strong> - <em>eagon@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>Reading & Critique</h2>
+
+			<figure>
+				<img src="https://vis-society.github.io/assets/imgs/covid-spiral.png" alt="" />
+			</figure>
+
+			<p>
+				Insights about the data/visualization:
+			</p>
+
+			<ul>
+				<li>The demarcation of each year is carefully constructed: they are 1.) indivdiually labeled, 2.) vertically aligned, 3.) situated (and curved) along the curvature of the direction of the plot. This contextualizes the reading and interpretation of time in a fairly experiential way.</li>
+				<li>The graph intentionally offsets the plotting of each year along a curved path to provide a continuous account of COVID cases while capturing the cyclical nature of time in a year. This is particularly important to reveal seasonal patterns, such as how relative spikes and higher density of cases occur in fall/winter. This may not be as visually apparent if plotted as a single line plot spanning three years.</li>
+				<li>The legend provides a reference for width of the trace to the number of cases, but does so with symmetry around the line and with a triangle representation, instead of simply your standard interval width. This contextualizes the reading a little bit more and aligns readers with the fact that you need to read width <i>around</i> the line, and ignore other distances like from the line to the center.</li>
+			</ul>
+
+			<p>
+				Design Critique:
+			</p>
+
+			<ul>
+				<li>The immediate (somewhat lopsided) spiral pattern that pops out at you does not clearly map on to any actual understanding or conveyed message: because data of case count is mapped exclusively to the <i>thickness</i> of the plot, I can't tell what the distance to the center means. It is this offset distance that creates the spiral pattern, and may have been injected in a way to properly allow for separation of each year's traces, but the particular choice of spiral seems to inject a very visible pattern without meaningful interpretation, which may be distracting at best to misleading at worst.</li>
+				<li>Despite the nice representation trick of the legend to serve as reference for mapping width to case count, it is still incredibly difficult to read and get any accurate sense of absolute magnitude whatsoever. We're constantly rotating, and on top of that the width is measured as a two-sided offset around the spiral path, meaning that it is very difficult to mentally guess at case count due to both angle and offset.</li>
+				<li>The offset path for each year greatly impedes direct visual comparison <i>between</i> years: because there is no common "zero" anymore, we only get a very general sense of comparison between years like "that's a lot bigger" or "that's roughly the same ballpark". While side-by-side comparison of relative change within a month is nice and easy to visualize, jumping across both visual space and polar space as we stretch the same unit of time over a longer absolute arc length increases the difficulty of this comparison.</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Visualization Sketches</h2>
+
+      <figure>
+				<img src="1.jpg" alt="" />
+				<figcaption>
+					By utilizing small multiples, we vertically align months while maintaining the visual imagery of the passage of time. While there's a direct disconnect in the graph now, hopefully this kind of 12 month layout is familiar enough to maintain the notion of continuity. The benefit lies in being able to scan vertically to compare and understand seasonal/monthly patterns while maintaining readability within a given year.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 1:
+			</p>
+
+			<ul>
+				<li>One of the issues with the original visualization is lack of clarity: both within a year, and across. While the overall presentation strongly conveyed continuity and seasonal trends at a glance, by nature of the expanding radius, the sheer area occupied actually no longer corresponds to a proper "density" or volume of cases because of the polar distortion. I tried going back to the basics with a line chart, but instead of simply plotting the full three years, using small multiples to stack and maintain the analogy of the passage of time.</li>
+				<li>This allows for each year to be read independently, but also allows for vertical scanning to get a sense of seasonal trends that change over time. I realized a little late with the pen that I didn't want to graph this in a dual-axis like fashion, so tried using some color to emphasize what the axis labels are (Date on the bottom, Cases on the side) and highlighting all time based elements with pink (the month markings I traced over again, as they should not be black).</li>
+				<li>An issue this reading presents is direct magnitude comparison between months, as once broken out into small multiples, you still need to reorient your eyes with zero every time. I'd like to try finding a visualization that directly overlays the lines given the same logical day of the year to allow for a direct comparison of magnitude.</li>
+			</ul>
+
+			<figure>
+				<img src="2.jpg" alt="" />
+				<figcaption>
+					Taking the metaphor of a calendar, each month expands to a view where each day contains a "waterline" plot of different colors representing different years. This approach adds a little interactivity and narrative visualization to drive home the point about the role of time and seasons in the spread of disease, and allows for the most direct comparison for any given day.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 2:
+			</p>
+
+			<ul>
+				<li>From the drawback of the previous graph that it was difficult to directly compare the magnitude of cases for the same logical time point, I decided to sketch an interactive visualization that takes the metaphor of a calendar as its substrate for presenting a time-centric message. Since each day expands to a direct "changing waterline" like graph for each year in different colors, this allows for the most direct comparison of yearly evolution for a given date.</li>
+				<li>As I sketched out the idea, a challenge I realized was that the metaphor couldn't be taken too literally in that the weekly shape of dates changes each year, and won't overlap directly. We could take some liberties here and do away with the day of the week alignment, or reconsider the presentation within a month.</li>
+				<li>Another deeper issue is that now trends on a larger scale, like seasonal trends, are visually lost. Though this approach increases interactivity and the ability to explore specifics greatly, the at-a-glance expressiveness for more important general trends is buried under too much detail, or poorly afforded across the metaphor. I'd like to combine elements from both these approaches in the next to find a better balance.</li>
+			</ul>
+
+			<figure>
+				<img src="3.jpg" alt="" />
+				<figcaption>
+					A reimagining of the original plot, but instead as a simpler polar plot with absolute magnitudes referenced from zero. This maintains the visual metaphor of cyclical time, while allowing for more direct comparison between years by haviing a sensible and shared zero point. 
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 3:
+			</p>
+
+			<ul>
+				<li>I went full circle (no pun intended) back to the original polar nature of the chart, as I do think it is thought-provoking and captures the cyclical nature of time well. However, drawing on the discoveries of the two previous attempts, I made a few changes to try to address some of the shortcomings of the original approach. Most importantly, by now having a sensible zero reference-point, visual comparison is a lot more direct between years.</li>
+				<li>In addition, the line plot mitigates somewhat the distortion effect of polar plots, especially once they incorporate width and area like the original attempt. This distortion disproportionately takes up more actual space on the page the further you get from the center, whereas the line-based comparison technically has zero width and affords for a direct comparison along any angle.</li>
+				<li>I like the balance of this graph, and would like to see how it looks in practice - for improvements, I might investigate other channels like colors to better highlight the difference between years, especially if there will be potential overlap of lines (can't really tell right now without investigating the data).</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Final Visualization Design</h2>
+      
+			<figure>
+				<img src="4.png" alt="" />
+				<figcaption>
+					A log-scale (base 10) graph of new COVID cases between 2020-2022, plotted in a (reverse/clockwise) polar format. By standardizing on case count as a distance from zero, this format affords more direct comparison between each year and their relative proportional magnitude, revealing trends otherwise buried in the original design. For example, the line plot allows for a much more sensitive portrayal of the weekly fluctuation, and its considerable range and variation even within a single week. In addition, we greatly mitigate the effects of area distortion in polar representations, yielding a much smaller visual gap between subsequent years.
+				</figcaption>
+			</figure>
+
+		</section>
+
+		<section>
+			<h2>Design Process & Design Decisions</h2>
+
+			<p>
+        I decided to polish and attempt to refine my third sketched visualization, as I thought it had the most promise and balanced the nice parts of the original figure (the polar cyclical representation) while addressing the difficulty of direct comparison across years. While attempting the initial plot, I immediately encountered a number of issues that each served as a lesson and chance to evolve the visualization:
+
+      </p>
+	  <ul>
+		<li><b>Domain:</b> It turns out that the data we were given had a lot more than what was initially presented, and not just in additional columns. Whereas the original visualization ends near the beginning of 2022, the data contained points well up until September of 2022, and even an erroneous point beyond. I decided to utilize these points to paint a fuller picture, but that came with its own downsides, leading to the next point.</li>
+		<li><b>Scale:</b> The range turned out to be massive, and on a polar graph this was greatly exacerbated. In particular, as the original visualization hinted at, there was an explosion after the beginning of 2022. New case counts went over a million, meaning magnitudes essentially 6 times greater than what was originally present, and this created the issue discussed in lecture of large values squishing visibility at smaller scales. To solve this issue, I decided to take the suggestion from class and change the scale to a base 10 log scale.</li>
+		<li><b>Variance:</b> The initial polar line plot seemed very visually different - most notably, there was a ton of fluctuation. At first I was confused, and then I realized that these corresponded directly to weekly fluctuations, as we see roughly 4 bumps for each month. Some of these fluctuations were a little too extreme, so I decided to do some extremely minimal smoothing, where I averaged the bare minimum by taking a sliding window of 2 days. This greatly heightened visibility without really changing the trends, such as the weekly variance factor. I realized that the original data visualization must have used a much more aggressive smoothing function to achieve their look.</li>
+		<li><b>Color:</b> At first, without color, the plot was incredibly confusing to read, as unlike the original plot, this version revealed when later years fell below previous years. This was something I suspected but couldn't visually confirm originally, so it was nice to see that the visualization enabled this comparison. However, to make this visually salient, I decided to try grouping color by year, and played around with a number of palettes. Arbitrary colors made very little sense and created a general confusion, while light->dark sequential palettes of most colors created a washed out and difficult to differentiate scheme. I ended up using a modified log curve (without the curve, the middle value is white on a divergent color map) on a divergent palette between blue and red, which also mapped somewhat semantically in blue being the calmer initial year, and the scaled yellow and red corresponding to the progress of time. Personally I found this combination to afford more comparison after you sit with it for a bit, though it still isn't the most immediately salient presentation.</li>  
+	</ul>
+
+	<p>While this redesign highlighted a number of trends and patterns almost invisible in the original presentation, it also somewhat obscures a few: namely the larger timescale and in particular seasonal differences. There's something about the log scale, especially once rotated 180 degrees across, that squishes absolute comparison where even though if you carefully looked at the labels and realized one line is around a million and the other 10 times smaller, values still feel somewhat close together.</p>
+
+      <h3>Reflection</h3>
+
+      <p>
+        I really enjoyed the critique by redesign process, as it both revealed areas of existing visualizations that could use elaboration, and helped me discover the trends hidden in those deficiences by guiding a redesign. While at first glance my figure somewhat hides the larger seasonal trends, it affords a number of fairly interesting and previously invisible comparisons and trends. The incredibly visible weekly fluctuation is not only present, but also by nature of yearly comparison and log scale, reveals visually that on a weekly basis, the new case count <i>variability</i> could bring it up or down an entire order of magnitude, enough to dip below or above other years.
+      </p>
+	  <p>In addition, for any given slice corresponding to a month, the yearly comparison in a relative sense is a lot more direct, which sufficiently addresses my main critique of the inability to do this sort of comparison. This ability enables visualization of a few trends that are also fairly obscure in the original visualization, such as how the evolution of new cases in 2022 initially eclipsed 2021 at the beginning of the year, but then fell markedly <i>below</i> 2021 between March and May, and then again rose above in the summer. In addition, it turns out that for these much lower case counts in the summer, the initial year of 2020 actually fell between 2022 and 2021. All these trends were incredibly difficult to pick up on in the original visualization, validating my critique that the polar chart greatly inflates the visual area when we take space into account at distances further from the center.</p>
+	  <p>Overall, these different approaches have both clear pros and cons, and as with any visualization challenge, can each serve as complementary perspectives for unveiling the stories in the data.</p>
+	</section>
+	</main>
+</body>
+</html>
